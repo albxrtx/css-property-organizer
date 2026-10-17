@@ -1,0 +1,14 @@
+{
+  "invalidFileType": {
+    "en": "This extension only works with CSS files.",
+    "es": "Esta extensión solo funciona con archivos CSS."
+  },
+  "emptyFile": {
+    "en": "The CSS file is empty",
+    "es": "El archivo CSS está vacío"
+  },
+  "organizationSuccess": {
+    "en": "The CSS file was organized correctly",
+    "es": "El archivo CSS se ha organizado correctamente"
+  }
+}
