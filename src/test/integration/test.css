@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #6366f1;
+  --background-color: #f1f5f9;
+  --text-color: #1e293b;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

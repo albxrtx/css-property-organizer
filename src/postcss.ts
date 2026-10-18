@@ -20,7 +20,6 @@ export function organizeCss(node: postcss.Container) {
         If not, process recursively if its is an at-rule
     */
     if (nodeChild.type === "rule") {
-      const selectorName = nodeChild.selector;
       /*
             Initialize an empty object to store properties by group 
       */
@@ -36,7 +35,7 @@ export function organizeCss(node: postcss.Container) {
       /*
             Create new selector with the grouped properties
       */
-      const newSelector = createNewSelector(selectorName, propertiesByGroup);
+      const newSelector = createNewSelector(nodeChild, propertiesByGroup);
 
       /*
             Replace the original selector with the selector created before
@@ -109,14 +108,15 @@ export function classifyProperty(
     Function to create new selector
 */
 export function createNewSelector(
-  selectorName: string,
+  originalRule: postcss.Rule,
   propertiesByGroup: Record<string, postcss.Declaration[]>,
 ) {
   /* 
         Initialize a new rule 
     */
-  const rule = postcss.rule({ selector: selectorName });
+  const rule = postcss.rule({ selector: originalRule.selector });
 
+  rule.raws.semicolon = originalRule.raws.semicolon;
   /* 
         Iterate through propertiesByGroup
   */
