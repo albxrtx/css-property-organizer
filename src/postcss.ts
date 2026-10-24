@@ -133,7 +133,9 @@ export function createNewSelector(
         Add all properties of the group to the rule
     */
     for (const decl of decls) {
-      rule.append(decl.clone());
+      const clonedDecl = decl.clone();
+      clonedDecl.raws.before = "\n  ";
+      rule.append(clonedDecl);
     }
   }
   return rule;
